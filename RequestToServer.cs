@@ -17,8 +17,7 @@ namespace Client_MilkAndMeat
         private const int port = 8888;
         private const string address = "127.0.0.1";
 
-
-        public static bool  SendLogin(string Login, string Password)
+        public static bool SendLogin(string Login, string Password)
         {
             
             TcpClient client = null;

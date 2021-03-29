@@ -29,29 +29,20 @@ namespace Client_MilkAndMeat
         {
             if (e.LeftButton == MouseButtonState.Pressed) DragMove();
         }
-        
-        private async void LoginB_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                LogBar.Visibility = Visibility.Hidden;
-                if (await Task.Run(() => RequestToServer.SendLogin(LoginText.Text, PasswordText.Password)))
-                {
-                    //ініт нове вікно
-                    this.Close();
-                }
-                else
-                {
-                    LogBar.Content = "Невірний логін, або пароль!";
-                    LogBar.Visibility = Visibility.Visible;
-                }
-            }
-            catch (Exception)
-            {
 
-                throw;
+        private void LoginB_Click(object sender, RoutedEventArgs e)
+        {
+            LogBar.Visibility = Visibility.Hidden;
+            if (RequestToServer.SendLogin(LoginText.Text, PasswordText.Password))
+            {
+                //ініт нове вікно
+                this.Close();
             }
-            
+            else
+            {
+                LogBar.Content = "Невірний логін, або пароль!";
+                LogBar.Visibility = Visibility.Visible;
+            }
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
