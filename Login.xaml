@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client_MilkAndMeat" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="380"
+        Title="Login" Height="450" Width="380"
         AllowsTransparency="True" Background="Transparent"
         WindowStyle="None" ResizeMode="NoResize"
         MouseDown="Window_MouseDown">
@@ -53,6 +53,17 @@
                         <DropShadowEffect ShadowDepth="6"/>
                     </TextBlock.Effect>
                 </TextBlock>
+                <TextBlock Text="Login" 
+                           HorizontalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="Bold"
+                           FontFamily="Helvetica"
+                           Foreground="White"
+                           Margin="15"
+                           >
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="6"/>
+                    </TextBlock.Effect></TextBlock>
             </StackPanel>
 
 
@@ -62,7 +73,7 @@
                     <TextBox x:Name="LoginText"
                              FontFamily="Helvetica"
                              FontWeight="Light"
-                             Text="Username"
+                             Text="Login"
                              FontSize="20"
                              HorizontalAlignment="Center"
                              Foreground="White"
@@ -72,17 +83,18 @@
                              HorizontalContentAlignment="Left"
                              Opacity="0.5"
                              Height="25"
-                             Margin="63,0,0,0">
+                             Margin="63,0,0,0" GotMouseCapture="LoginText_GotMouseCapture">
                         <TextBox.Effect>
                             <DropShadowEffect ShadowDepth="2"/>
                         </TextBox.Effect>
                     </TextBox>
-                    <iconPacks:PackIconMaterial Kind="Account" 
+                    <iconPacks:PackIconMaterial Kind="Login" 
                                                 VerticalAlignment="Center" 
                                                 HorizontalAlignment="Center" 
                                                 Foreground="White"/>
                 </StackPanel>
-                <Border Width="250"
+                <Border x:Name="BLogin"
+                        Width="250"
                         Height="2"
                         Background="White"
                         Opacity="0.5"/>
@@ -103,13 +115,14 @@
                              HorizontalContentAlignment="Left"
                              Opacity="0.5"
                              Height="25"
-                             Margin="63,0,0,0"/>
+                             Margin="63,0,0,0" GotMouseCapture="PasswordText_GotMouseCapture"/>
                     <iconPacks:PackIconMaterial Kind="FormTextboxPassword" 
                                                 VerticalAlignment="Center" 
                                                 HorizontalAlignment="Center" 
                                                 Foreground="White"/>
                 </StackPanel>
-                <Border Width="250"
+                <Border x:Name="BPassword"
+                        Width="250"
                         Height="2"
                         Background="White"
                         Opacity="0.5"/>
@@ -121,7 +134,7 @@
                             <DropShadowEffect/>
                         </Button.Effect>
                     </Button>
-                    <Button Width="100" Height="40" Content="REGISTER">
+                    <Button x:Name="BRegistry" Width="100" Height="40" Content="REGISTER" Click="BRegistry_Click">
                         <Button.Effect>
                             <DropShadowEffect/>
                         </Button.Effect>

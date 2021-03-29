@@ -17,7 +17,7 @@ namespace Client_MilkAndMeat
         private const int port = 8888;
         private const string address = "127.0.0.1";
 
-        public static bool SendLogin(string Login, string Password)
+        public static short SendData(string Data)
         {
             
             TcpClient client = null;
@@ -25,11 +25,10 @@ namespace Client_MilkAndMeat
             {
                 client = new TcpClient(address, port);
                 NetworkStream stream = client.GetStream();
-                string message = String.Format("{0}:{1}:{2}", "login", Login, Password);
                 
                 while (true)
                 {
-                    byte[] data = Encoding.Unicode.GetBytes(message);
+                    byte[] data = Encoding.Unicode.GetBytes(Data);
                     stream.Write(data, 0, data.Length);
 
                     data = new byte[64]; 
@@ -42,13 +41,13 @@ namespace Client_MilkAndMeat
                     }
                     while (stream.DataAvailable);
                     Console.WriteLine(Convert.ToBoolean(builder.ToString()));
-                    return Convert.ToBoolean(builder.ToString()); 
+                    return Convert.ToInt16(builder.ToString()); 
                 }
             }
             catch
             {
                 //запис в логи
-                return false;
+                return -1;
             }
             finally
             {

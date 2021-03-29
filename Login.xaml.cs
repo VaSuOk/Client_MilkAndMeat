@@ -33,21 +33,67 @@ namespace Client_MilkAndMeat
         private void LoginB_Click(object sender, RoutedEventArgs e)
         {
             LogBar.Visibility = Visibility.Hidden;
-            if (RequestToServer.SendLogin(LoginText.Text, PasswordText.Password))
+            if (LoginText.Text == "" || LoginText.Text == "Login")
             {
-                //ініт нове вікно
-                this.Close();
+                BLogin.Background = Brushes.Red;
+                LogBar.Content = "Введіть логін!";
+                LogBar.Visibility = Visibility.Visible;
+            }
+            else if (PasswordText.Password == "" || PasswordText.Password == "Password")
+            {
+                BPassword.Background = Brushes.Red;
+                LogBar.Content = "Введіть пароль!";
+                LogBar.Visibility = Visibility.Visible;
             }
             else
             {
-                LogBar.Content = "Невірний логін, або пароль!";
-                LogBar.Visibility = Visibility.Visible;
+                string data = String.Format("{0}:{1}:{2}", "login", LoginText.Text, PasswordText.Password);
+                switch (RequestToServer.SendData(data))
+                {
+                    case 0:
+                        {
+                            LogBar.Content = "Невірний логін, або пароль!";
+                            LogBar.Visibility = Visibility.Visible;
+                            break;
+                        }
+                    case 1:
+                        {
+                            //відкрити потрібне вікно!
+                            this.Close();
+                            break;
+                        }
+                    case -1:
+                        {
+                            LogBar.Content = "Відсутнє з'єднання з сервером!";
+                            LogBar.Visibility = Visibility.Visible;
+                            break;
+                        }
+                }
             }
+            
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void BRegistry_Click(object sender, RoutedEventArgs e)
+        {
+            new Registration().Show();
+            this.Close();
+        }
+
+        private void LoginText_GotMouseCapture(object sender, MouseEventArgs e)
+        {
+            if (LoginText.Text == "Login") LoginText.Text = "";
+            if (BLogin.Background == Brushes.Red) BLogin.Background = Brushes.White;
+        }
+
+        private void PasswordText_GotMouseCapture(object sender, MouseEventArgs e)
+        {
+            if (PasswordText.Password == "Password") PasswordText.Password = "";
+            if (BPassword.Background == Brushes.Red) BPassword.Background = Brushes.White;
         }
     }
 }
