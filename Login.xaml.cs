@@ -30,11 +30,10 @@ namespace Client_MilkAndMeat
             if (e.LeftButton == MouseButtonState.Pressed) DragMove();
         }
 
-        private async void LoginB_Click(object sender, RoutedEventArgs e)
+        private void LoginB_Click(object sender, RoutedEventArgs e)
         {
             LogBar.Visibility = Visibility.Hidden;
-            LoginText.Dispatcher.Invoke();
-            if (await Task.Run(() => RequestToServer.SendLogin(LoginText.Text, PasswordText.Password)))
+            if (RequestToServer.SendLogin(LoginText.Text, PasswordText.Password))
             {
                 //ініт нове вікно
                 this.Close();
