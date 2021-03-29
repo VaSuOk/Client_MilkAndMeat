@@ -88,7 +88,29 @@ namespace Client_MilkAndMeat
             {
                 TypeText.Foreground = Brushes.White;
                 LogBar.Visibility = Visibility.Hidden;
-
+                string data = String.Format("{0}:{1}:{2}:{3}:{4}:{5}:{6}", "registration", userType, NameText.Text+" "+ SurnameText.Text,  EmailText.Text, PhoneText.Text, LoginText.Text, PasswordText.Password);
+                switch (RequestToServer.SendData(data))
+                {
+                    case 0:
+                        {
+                            LogBar.Content = "Невірний формат даних!";
+                            LogBar.Visibility = Visibility.Visible;
+                            break;
+                        }
+                    case 1:
+                        {
+                            //відкрити потрібне вікно!
+                            this.Close();
+                            break;
+                        }
+                    case -1:
+                        {
+                            LogBar.Content = "Відсутнє з'єднання з сервером!";
+                            LogBar.Visibility = Visibility.Visible;
+                            break;
+                        }
+                }
+                
             }
 
         }
