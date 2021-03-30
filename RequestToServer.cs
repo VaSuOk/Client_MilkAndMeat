@@ -40,7 +40,6 @@ namespace Client_MilkAndMeat
                         builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
                     }
                     while (stream.DataAvailable);
-                    Console.WriteLine(Convert.ToBoolean(builder.ToString()));
                     return Convert.ToInt16(builder.ToString()); 
                 }
             }
