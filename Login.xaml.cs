@@ -47,6 +47,7 @@ namespace Client_MilkAndMeat
             }
             else
             {
+                new MainMenu().Show(); //!!!!!!!!!!!!!!!!
                 string data = String.Format("{0}:{1}:{2}", "login", LoginText.Text, PasswordText.Password);
                 switch (RequestToServer.SendData(data))
                 {
@@ -59,6 +60,7 @@ namespace Client_MilkAndMeat
                     case 1:
                         {
                             //відкрити потрібне вікно!
+                            
                             this.Close();
                             break;
                         }
