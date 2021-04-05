@@ -17,17 +17,26 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Background="#FF081132">
-            <Button Margin="0,10,0,0" 
-                    FontFamily="Helvetica"
-                    FontWeight="Bold"
-                    HorizontalAlignment="Center" 
-                    Width="120" Height="40" 
-                    Content="SAVE" 
-                    FontSize="24"
-                    
-                    ></Button>
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Label FontFamily="Helvetica"
+                             Name="LogBar"
+                             FontWeight="Medium"
+                             Content="LogBar"
+                             FontSize="20"
+                             HorizontalAlignment="Center"
+                             Foreground="Red"
+                             Background="Transparent"
+                             HorizontalContentAlignment="Center"
+                             BorderThickness="0"
+                             Width="600"
+                             Visibility="Hidden"
+                             Opacity="1"
+                             Height="35"
+                             Margin="10,0,0,0">
+
+            </Label>
         </StackPanel>
+        
         <StackPanel Margin="0,20,0,0">
             <Label
                 FontWeight="Bold"
@@ -83,6 +92,7 @@
                     
                 </Label>
                 <TextBox x:Name="NameText"
+                         GotMouseCapture="NameText_GotMouseCapture"
                              FontFamily="Helvetica"
                              FontWeight="Medium"
                              Text="Name"
@@ -99,6 +109,11 @@
                 </TextBox>
                 
             </StackPanel>
+            <Border x:Name="BName"
+                        Width="400"
+                        Height="2"
+                        Background="#FF081132"
+                        Opacity="1"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
                 <iconPacks:PackIconMaterial Kind="Account" 
                                                 VerticalAlignment="Center" 
@@ -120,6 +135,7 @@
 
                 </Label>
                 <TextBox x:Name="SurnameText"
+                         GotMouseCapture="SurnameText_GotMouseCapture"
                              FontFamily="Helvetica"
                              FontWeight="Medium"
                              Text="Name"
@@ -137,6 +153,11 @@
                 </TextBox>
 
             </StackPanel>
+            <Border x:Name="BSurname"
+                        Width="400"
+                        Height="2"
+                        Background="#FF081132"
+                        Opacity="1"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
                 <iconPacks:PackIconMaterial Kind="Post" 
                                                 VerticalAlignment="Center" 
@@ -158,6 +179,7 @@
 
                 </Label>
                 <TextBox x:Name="positionText"
+                         GotMouseCapture="positionText_GotMouseCapture"
                              FontFamily="Helvetica"
                              FontWeight="Medium"
                              Text="Name"
@@ -175,6 +197,11 @@
                 </TextBox>
 
             </StackPanel>
+            <Border x:Name="BPosition"
+                        Width="400"
+                        Height="2"
+                        Background="#FF081132"
+                        Opacity="1"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
                 <iconPacks:PackIconMaterial Kind="Email" 
                                                 VerticalAlignment="Center" 
@@ -196,6 +223,7 @@
 
                 </Label>
                 <TextBox x:Name="EmailText"
+                         GotMouseCapture="EmailText_GotMouseCapture"
                              FontFamily="Helvetica"
                              FontWeight="Medium"
                              Text="Name"
@@ -213,6 +241,11 @@
                 </TextBox>
 
             </StackPanel>
+            <Border x:Name="BEmail"
+                        Width="400"
+                        Height="2"
+                        Background="#FF081132"
+                        Opacity="1"/>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
                 <iconPacks:PackIconMaterial Kind="Phone" 
@@ -235,6 +268,7 @@
 
                 </Label>
                 <TextBox x:Name="PhoneText"
+                         GotMouseCapture="PhoneText_GotMouseCapture"
                              FontFamily="Helvetica"
                              FontWeight="Medium"
                              Text="Name"
@@ -252,6 +286,22 @@
                 </TextBox>
 
             </StackPanel>
+            <Border x:Name="BPhone"
+                        Width="400"
+                        Height="2"
+                        Background="#FF081132"
+                        Opacity="1"/>
+
+            <Button Margin="0,70,0,0" 
+                    Background="#FF081132"
+                    FontFamily="Helvetica"
+                    FontWeight="Bold"
+                    HorizontalAlignment="Center" 
+                    Width="160" Height="40" 
+                    Content="SAVE ALL" 
+                    FontSize="24"
+                    Click="Button_Click"
+                    ></Button>
 
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1">
@@ -276,6 +326,7 @@
 
                 </Label>
                 <TextBox x:Name="NameCompanyText"
+                         GotMouseCapture="NameCompanyText_GotMouseCapture"
                              FontFamily="Helvetica"
                              FontWeight="Medium"
                              Text="Name"
@@ -293,50 +344,58 @@
                 </TextBox>
 
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+            <Border x:Name="BCompanyName"
+                        Width="400"
+                        Height="2"
+                        Background="#FF081132"
+                        Opacity="1"/>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,20,0,0">
                 <StackPanel Orientation="Horizontal">
-                    <iconPacks:PackIconMaterial Kind="Book" 
-                                                Margin="0,9,0,0"
-                                                VerticalAlignment="Top" 
+                    <iconPacks:PackIconMaterial Kind="Text" 
+                                                VerticalAlignment="Center" 
                                                 HorizontalAlignment="Center" 
                                                 Foreground="#FF081132"/>
-                <Label FontFamily="Helvetica"
-                       VerticalAlignment="Top"
+                    <Label FontFamily="Helvetica"
                              FontWeight="Medium"
                              Content="Description"
+                           
                              FontSize="20"
-                             HorizontalAlignment="Center"
                              Foreground="#FF081132"
                              Background="Transparent"
                              BorderThickness="0"
-                             Width="120"
-                             HorizontalContentAlignment="Left"
+                             Width="362"
+                             HorizontalContentAlignment="Center"
                              Opacity="1"
                              Height="35"
-                             Margin="10,0,0,0">
-
-                </Label>
+                             Margin="10,0,0,0"/>
                 </StackPanel>
-                
+
                 <TextBox x:Name="DescriptionText"
-                            TextWrapping="Wrap"
+                         GotMouseCapture="DescriptionText_GotMouseCapture"
+                         BorderBrush="#FF081132"
                              FontFamily="Helvetica"
                              FontWeight="Medium"
-                             Text="Name"
-                             FontSize="20"
+                         TextWrapping="Wrap"
+                             Text="Input Description"
+                             FontSize="16"
                              HorizontalAlignment="Center"
                              Foreground="#FF081132"
                              Background="Transparent"
-                             BorderThickness="0"
-                             Width="250"
+                             BorderThickness="1"
+                             Width="378"
                              HorizontalContentAlignment="Left"
                              Opacity="1"
-                             Height="100"
+                             Height="67"
                              Margin="10,0,0,0" >
 
                 </TextBox>
 
             </StackPanel>
+            <Border x:Name="BDescription"
+                        Width="400"
+                        Height="2"
+                        Background="#FF081132"
+                        Opacity="1"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
                 <iconPacks:PackIconMaterial Kind="Road" 
                                                 VerticalAlignment="Center" 
@@ -358,6 +417,7 @@
 
                 </Label>
                 <TextBox x:Name="AddresText"
+                         GotMouseCapture="AddresText_GotMouseCapture"
                              FontFamily="Helvetica"
                              FontWeight="Medium"
                              Text="Name"
@@ -375,6 +435,11 @@
                 </TextBox>
 
             </StackPanel>
+            <Border x:Name="BAddres"
+                        Width="400"
+                        Height="2"
+                        Background="#FF081132"
+                        Opacity="1"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
                 <iconPacks:PackIconMaterial Kind="ImageArea" 
                                                 VerticalAlignment="Center" 
@@ -396,6 +461,7 @@
 
                 </Label>
                 <TextBox x:Name="RegionText"
+                         GotMouseCapture="RegionText_GotMouseCapture"
                              FontFamily="Helvetica"
                              FontWeight="Medium"
                              Text="Name"
@@ -413,6 +479,11 @@
                 </TextBox>
 
             </StackPanel>
+            <Border x:Name="BRegion"
+                        Width="400"
+                        Height="2"
+                        Background="#FF081132"
+                        Opacity="1"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
                 <iconPacks:PackIconMaterial Kind="HumanGreeting" 
                                                 VerticalAlignment="Center" 
@@ -434,6 +505,7 @@
 
                 </Label>
                 <TextBox x:Name="DirectorText"
+                         GotMouseCapture="DirectorText_GotMouseCapture"
                              FontFamily="Helvetica"
                              FontWeight="Medium"
                              Text="Director"
@@ -451,6 +523,11 @@
                 </TextBox>
 
             </StackPanel>
+            <Border x:Name="BDirector"
+                        Width="400"
+                        Height="2"
+                        Background="#FF081132"
+                        Opacity="1"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
                 <iconPacks:PackIconMaterial Kind="Phone" 
                                                 VerticalAlignment="Center" 
@@ -472,6 +549,7 @@
 
                 </Label>
                 <TextBox x:Name="PhoneDirectorText"
+                         GotMouseCapture="PhoneDirectorText_GotMouseCapture"
                              FontFamily="Helvetica"
                              FontWeight="Medium"
                              Text="Name"
@@ -489,6 +567,11 @@
                 </TextBox>
 
             </StackPanel>
+            <Border x:Name="BPhoneDir"
+                        Width="400"
+                        Height="2"
+                        Background="#FF081132"
+                        Opacity="1"/>
             
         </StackPanel>
         

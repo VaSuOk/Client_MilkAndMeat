@@ -36,10 +36,10 @@
             </Grid.Effect>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button HorizontalAlignment="Right" 
-                        Width="30" 
-                        Height="30"
+                        Width="40" 
+                        Height="40"
                         Content="X"
-                        FontSize="20"
+                        FontSize="26"
                         Margin="5,5,5,5"
                         Click="Exit_Click"
                         FontWeight="Bold"
@@ -52,6 +52,7 @@
                        Text="Meat and Milk"
                        FontWeight="Bold"
                        FontFamily="Helvetica"
+                       Margin="68,0,0,0"
                        />
         </Grid>
         <Grid x:Name="GridMenu" Width="70" HorizontalAlignment="Left" Background="#FF081132">
