@@ -1,0 +1,280 @@
+﻿<UserControl x:Class="Client_MilkAndMeat.UserControls.AddProduct"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Client_MilkAndMeat.UserControls" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             mc:Ignorable="d" 
+             d:DesignHeight="540" d:DesignWidth="1010">
+    <Grid Background="#FFDEDEDE">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Background="#FF081132">
+            <Button Margin="0,10,0,0" 
+                    FontFamily="Helvetica"
+                    FontWeight="Bold"
+                    HorizontalAlignment="Center" 
+                    Width="120" Height="40" 
+                    Content="SAVE" 
+                    FontSize="24"
+                    Click="Button_Click_1"
+                    ></Button>
+        </StackPanel>
+        <StackPanel Margin="0,20,0,0" Grid.ColumnSpan="2">
+            <Label
+                FontWeight="Bold"
+                             Content="Create product"
+                             FontSize="30"
+                                FontFamily="Helvetica"
+                             HorizontalAlignment="Center"
+                             Foreground="#FF081132"
+                             Background="Transparent"
+                             BorderThickness="1"
+                             HorizontalContentAlignment="Left"
+                             Opacity="1"
+                             Height="50">
+
+            </Label>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <iconPacks:PackIconMaterial Kind="text" 
+                                                VerticalAlignment="Center" 
+                                                HorizontalAlignment="Center" 
+                                                Foreground="#FF081132"/>
+                <Label FontFamily="Helvetica"
+                       
+                             FontWeight="Medium"
+                             Content="Name"
+                             FontSize="20"
+                             HorizontalAlignment="Center"
+                             Foreground="#FF081132"
+                             Background="Transparent"
+                             BorderThickness="0"
+                             Width="100"
+                             HorizontalContentAlignment="Left"
+                             Opacity="1"
+                             Height="35"
+                             Margin="10,0,0,0">
+
+                </Label>
+                <TextBox x:Name="NameProductText"
+                             FontFamily="Helvetica"
+                             FontWeight="Medium"
+                             Text="Input name"
+                             FontSize="20"
+                             HorizontalAlignment="Center"
+                             Foreground="#FF081132"
+                             Background="Transparent"
+                             BorderThickness="0"
+                             Width="250"
+                             HorizontalContentAlignment="Left"
+                             Opacity="1"
+                             Height="25"
+                             Margin="10,0,0,0" >
+                </TextBox>
+
+            </StackPanel>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconMaterial Kind="Account" 
+                                                VerticalAlignment="Center" 
+                                                HorizontalAlignment="Center" 
+                                                Foreground="#FF081132"/>
+                    <Label FontFamily="Helvetica"
+                             FontWeight="Medium"
+                             Content="Description"
+                           
+                             FontSize="20"
+                             Foreground="#FF081132"
+                             Background="Transparent"
+                             BorderThickness="0"
+                             Width="230"
+                             HorizontalContentAlignment="Center"
+                             Opacity="1"
+                             Height="35"
+                             Margin="10,0,0,0"/>
+                </StackPanel>
+
+                <TextBox x:Name="DescriptionText"
+                             FontFamily="Helvetica"
+                             FontWeight="Medium"
+                         TextWrapping="Wrap"
+                             Text="Input Description"
+                             FontSize="20"
+                             HorizontalAlignment="Center"
+                             Foreground="#FF081132"
+                             Background="Transparent"
+                             BorderThickness="0"
+                             Width="382"
+                             HorizontalContentAlignment="Left"
+                             Opacity="1"
+                             Height="67"
+                             Margin="10,0,0,0" >
+
+                </TextBox>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <iconPacks:PackIconMaterial Kind="Post" 
+                                                VerticalAlignment="Center" 
+                                                HorizontalAlignment="Center" 
+                                                Foreground="#FF081132"/>
+                <Label FontFamily="Helvetica"
+                             FontWeight="Medium"
+                             Content="Sort"
+                             FontSize="20"
+                             HorizontalAlignment="Center"
+                             Foreground="#FF081132"
+                             Background="Transparent"
+                             BorderThickness="0"
+                             Width="100"
+                             HorizontalContentAlignment="Left"
+                             Opacity="1"
+                             Height="35"
+                             Margin="10,0,0,0">
+
+                </Label>
+                <TextBox x:Name="SortText"
+                             FontFamily="Helvetica"
+                             FontWeight="Medium"
+                             Text="input sort"
+                             FontSize="20"
+                             HorizontalAlignment="Center"
+                             Foreground="#FF081132"
+                             Background="Transparent"
+                             BorderThickness="0"
+                             Width="250"
+                             HorizontalContentAlignment="Left"
+                             Opacity="1"
+                             Height="25"
+                             Margin="10,0,0,0" >
+
+                </TextBox>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <iconPacks:PackIconMaterial Kind="Email" 
+                                                VerticalAlignment="Center" 
+                                                HorizontalAlignment="Center" 
+                                                Foreground="#FF081132"/>
+                <Label FontFamily="Helvetica"
+                             FontWeight="Medium"
+                             Content="Group"
+                             FontSize="20"
+                             HorizontalAlignment="Center"
+                             Foreground="#FF081132"
+                             Background="Transparent"
+                             BorderThickness="0"
+                             Width="100"
+                             HorizontalContentAlignment="Left"
+                             Opacity="1"
+                             Height="35"
+                             Margin="10,0,0,0">
+
+                </Label>
+                <TextBox x:Name="GroupText"
+                             FontFamily="Helvetica"
+                             FontWeight="Medium"
+                             Text="input group"
+                             FontSize="20"
+                             HorizontalAlignment="Center"
+                             Foreground="#FF081132"
+                             Background="Transparent"
+                             BorderThickness="0"
+                             Width="250"
+                             HorizontalContentAlignment="Left"
+                             Opacity="1"
+                             Height="25"
+                             Margin="10,0,0,0" >
+
+                </TextBox>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <iconPacks:PackIconMaterial Kind="Image" 
+                                                VerticalAlignment="Center" 
+                                                HorizontalAlignment="Center" 
+                                                Foreground="#FF081132"/>
+                <Label FontFamily="Helvetica"
+                             FontWeight="Medium"
+                             Content="Image"
+                             FontSize="20"
+                             HorizontalAlignment="Center"
+                             Foreground="#FF081132"
+                             Background="Transparent"
+                             BorderThickness="0"
+                             Width="100"
+                             HorizontalContentAlignment="Left"
+                             Opacity="1"
+                             Height="35"
+                             Margin="10,0,0,0">
+
+                </Label>
+                <Button Width="120" Content="Browse" HorizontalAlignment="Center" 
+                        Background="#FF081132"
+                        FontSize="20"
+                        Click="Button_Click"
+                        Margin="0,0,140,0">
+
+                </Button>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <iconPacks:PackIconMaterial Kind="Bitcoin" 
+                                                VerticalAlignment="Center" 
+                                                HorizontalAlignment="Center" 
+                                                Foreground="#FF081132"/>
+                <Label FontFamily="Helvetica"
+                             FontWeight="Medium"
+                             Content="Price"
+                             FontSize="20"
+                             HorizontalAlignment="Center"
+                             Foreground="#FF081132"
+                             Background="Transparent"
+                             BorderThickness="0"
+                             Width="100"
+                             HorizontalContentAlignment="Left"
+                             Opacity="1"
+                             Height="35"
+                             Margin="10,0,0,0">
+
+                </Label>
+                <TextBox x:Name="PriceText"
+                             FontFamily="Helvetica"
+                             FontWeight="Medium"
+                             Text="0.1"
+                             FontSize="20"
+                             HorizontalAlignment="Center"
+                             Foreground="#FF081132"
+                             Background="Transparent"
+                             BorderThickness="0"
+                             Width="250"
+                             HorizontalContentAlignment="Left"
+                             Opacity="1"
+                             Height="25"
+                             Margin="10,0,0,0" >
+
+                </TextBox>
+
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+
+            <Image Name="img" Width="400" Height="400">
+
+            </Image>
+
+        </StackPanel>
+
+    </Grid>
+</UserControl>

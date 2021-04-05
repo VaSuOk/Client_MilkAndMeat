@@ -1,7 +1,5 @@
-﻿
-using Client_MilkAndMeat.UserControls;
-using Client_MilkAndMeat.ViewModel;
-using MaterialDesignThemes.Wpf;
+﻿using Client_MilkAndMeat.UserControls;
+using Client_MilkAndMeat.Users;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,14 +15,31 @@ using System.Windows.Shapes;
 namespace Client_MilkAndMeat
 {
     /// <summary>
-    /// Логика взаимодействия для MainMenu.xaml
+    /// Логика взаимодействия для MainManufactore.xaml
     /// </summary>
-    public partial class MainMenu : Window
+    public partial class MainManufactore : Window
     {
-        public MainMenu()
+        public Manufacturer manufacturer;
+        public MainManufactore(User user)
         {
             InitializeComponent();
+            manufacturer = new Manufacturer(user);
+            
+            UserControl usc = null;
+            GridMain.Children.Clear();
 
+            if (manufacturer.InitManufacturer() == 1)
+            {
+                usc = new UserProfileControl(ref manufacturer);
+                GridMain.Children.Add(usc);
+            }
+            else
+            {
+
+                usc = new UserProfileControl(ref manufacturer);
+                GridMain.Children.Add(usc);
+                //init control init data
+            }
         }
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
         {
@@ -48,13 +63,21 @@ namespace Client_MilkAndMeat
             switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
             {
                 case "MyProduct":
-                    usc = new ControlMyProducts();
+                    usc = new ControlMyProducts(manufacturer.ID_Manufacturer);
                     GridMain.Children.Add(usc);
                     break;
-                
+                case "Account":
+                    usc = new UserProfileControl(ref manufacturer);
+                    GridMain.Children.Add(usc);
+                    break;
+                case "CreateProduct":
+                    usc = new AddProduct(manufacturer.ID_Manufacturer);
+                    GridMain.Children.Add(usc);
+                    break;
+                    
                 default:
                     break;
-            } 
+            }
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)

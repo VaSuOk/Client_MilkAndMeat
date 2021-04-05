@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using Client_MilkAndMeat.Users;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,10 +20,11 @@ namespace Client_MilkAndMeat
 
     public partial class Registration : Window
     {
-        private UserType userType; 
+        private User user;
         public Registration()
         {
             InitializeComponent();
+            user = new User();
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -36,7 +39,7 @@ namespace Client_MilkAndMeat
 
         private void LoginB_Click(object sender, RoutedEventArgs e)
         {
-            new MainWindow().Show(); //Login Form (fix name!)
+            new ULogin().Show(); //Login Form (fix name!)
             this.Close();
         }
 
@@ -78,7 +81,7 @@ namespace Client_MilkAndMeat
                 LogBar.Content = "Введіть номер телефону!";
                 LogBar.Visibility = Visibility.Visible;
             }
-            else if(userType == UserType.Unregistered)
+            else if(user.GetUserType() == UserType.Unregistered)
             {
                 TypeText.Foreground = Brushes.Red;
                 LogBar.Content = "Оберіть тип користувача!";
@@ -88,8 +91,8 @@ namespace Client_MilkAndMeat
             {
                 TypeText.Foreground = Brushes.White;
                 LogBar.Visibility = Visibility.Hidden;
-                string data = String.Format("{0}:{1}:{2}:{3}:{4}:{5}:{6}", "registration", userType, NameText.Text+" "+ SurnameText.Text,  EmailText.Text, PhoneText.Text, LoginText.Text, PasswordText.Password);
-                switch (RequestToServer.SendData(data))
+                
+                switch (user.UserRegistration(LoginText.Text, PasswordText.Password, NameText.Text+" "+SurnameText.Text, EmailText.Text, PhoneText.Text, user.GetUserType() ))
                 {
                     case 0:
                         {
@@ -100,6 +103,7 @@ namespace Client_MilkAndMeat
                     case 1:
                         {
                             //відкрити потрібне вікно!
+                            new ULogin().Show();
                             this.Close();
                             break;
                         }
@@ -119,14 +123,14 @@ namespace Client_MilkAndMeat
         {
             Reseller.Opacity = 1;
             Manufacturer.Opacity = 0.5;
-            userType = UserType.Reseller;
+            user.Set_UserType(UserType.Reseller);
         }
 
         private void Manufacturer_Click(object sender, RoutedEventArgs e)
         {
             Reseller.Opacity = 0.5;
             Manufacturer.Opacity = 1;
-            userType = UserType.Manufacture;
+            user.Set_UserType(UserType.Manufacture);
         }
 
         private void LoginText_GotMouseCapture(object sender, MouseEventArgs e)

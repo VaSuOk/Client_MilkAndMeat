@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Client_MilkAndMeat.Users;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -10,19 +9,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Client_MilkAndMeat
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для ULogin.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ULogin : Window
     {
-        public MainWindow()
+        private User user;
+        public ULogin()
         {
             InitializeComponent();
+            this.user = new User();
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -47,9 +47,8 @@ namespace Client_MilkAndMeat
             }
             else
             {
-                new MainMenu().Show(); //!!!!!!!!!!!!!!!!
-                string data = String.Format("{0}:{1}:{2}", "login", LoginText.Text, PasswordText.Password);
-                switch (RequestToServer.SendData(data))
+
+                switch (user.UserLogin(LoginText.Text, PasswordText.Password))
                 {
                     case 0:
                         {
@@ -60,7 +59,7 @@ namespace Client_MilkAndMeat
                     case 1:
                         {
                             //відкрити потрібне вікно!
-                            
+                            new MainManufactore(user).Show(); //!!!!!!!!!!!!!!!!
                             this.Close();
                             break;
                         }
@@ -72,7 +71,7 @@ namespace Client_MilkAndMeat
                         }
                 }
             }
-            
+
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)

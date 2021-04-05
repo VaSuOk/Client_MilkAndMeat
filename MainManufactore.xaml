@@ -1,4 +1,4 @@
-﻿<Window x:Class="Client_MilkAndMeat.MainMenu"
+﻿<Window x:Class="Client_MilkAndMeat.MainManufactore"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -90,9 +90,9 @@
                             <TextBlock Text="MyProduct" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="ItemProduser" Height="60">
+                    <ListViewItem x:Name="CreateProduct" Height="60">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Shop" Height="25" Width="25" Margin="10"/>
+                            <materialDesign:PackIcon Kind="Create" Height="25" Width="25" Margin="10"/>
                             <TextBlock Text="Buy" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>

@@ -5,13 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Client_MilkAndMeat.UserControls" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="540" d:DesignWidth="1010">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0"></RowDefinition>
             <RowDefinition ></RowDefinition>
         </Grid.RowDefinitions>
-        <ScrollViewer Grid.Row="1" Background="#FFCB7D7D">
+        <ScrollViewer Grid.Row="1" Background="#FFDEDEDE">
             <StackPanel>
 
                 <TextBlock Text="Items" Margin="10" FontSize="22" FontWeight="Medium"/>
@@ -19,18 +19,21 @@
                     <ItemsControl x:Name="ListViewProducts" ItemsSource="{Binding Product}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
+                                
                                 <Border Margin="10" Width="110" Height="160">
                                     <StackPanel>
+
                                         <Border Width="100" Height="100" CornerRadius="5" Margin="5">
                                             <Border.Effect>
                                                 <DropShadowEffect ShadowDepth="1"/>
                                             </Border.Effect>
                                             <Border.Background>
-                                                <ImageBrush ImageSource="{Binding Image}"/>
+                                                <ImageBrush ImageSource="{Binding image}"/>
                                             </Border.Background>
                                         </Border>
-                                        <TextBlock Margin="5" Text="{Binding Value, StringFormat={}{0:C}}" FontSize="17" FontFamily="Franklin Gothic Medium"/>
-                                        <TextBlock Margin="5 0" Text="{Binding Name}" FontSize="15"/>
+                                        <Button Content="{Binding Name}" Tag="{Binding}" Click="Button_Click"/>
+                                        <TextBlock Margin="5" Text="{Binding Price}" FontSize="17" FontFamily="Franklin Gothic Medium"/>
+                                        <TextBlock Margin="5 0" Text="{Binding Name}" FontSize="17"/>
                                     </StackPanel>
                                 </Border>
                             </DataTemplate>
