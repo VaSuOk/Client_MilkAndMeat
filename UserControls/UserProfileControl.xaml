@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Client_MilkAndMeat.UserControls" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
              d:DesignHeight="540" d:DesignWidth="1010">
-    <Grid Background="#FFDEDEDE">
+    <Grid Background="Transparent">
        
         <Grid.RowDefinitions>
             <RowDefinition Height="60"></RowDefinition>
@@ -17,6 +17,8 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <Border Background="#FFECECEC" Opacity="0.86" BorderBrush="Transparent" BorderThickness="10" CornerRadius="76" Grid.ColumnSpan="3" Grid.RowSpan="3">
+        </Border>
         <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
             <Label FontFamily="Helvetica"
                              Name="LogBar"

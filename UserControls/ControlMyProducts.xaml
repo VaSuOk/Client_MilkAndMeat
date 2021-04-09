@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Client_MilkAndMeat.UserControls" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:Client_MilkAndMeat.UserControls" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="540" d:DesignWidth="1010">
     <Grid>
@@ -11,16 +11,19 @@
             <RowDefinition Height="0"></RowDefinition>
             <RowDefinition ></RowDefinition>
         </Grid.RowDefinitions>
-        <ScrollViewer Grid.Row="1" Background="#FFDEDEDE">
+        <Border Background="#FFECECEC" Opacity="0.86" BorderBrush="Transparent" BorderThickness="10" CornerRadius="77" Grid.ColumnSpan="3" Grid.RowSpan="3">
+        </Border>
+        
+            <ScrollViewer Grid.Row="1" Background="Transparent" Height="540" VerticalScrollBarVisibility="Visible" Margin="1,27,40,27">
             <StackPanel>
 
-                <TextBlock Text="Items" Margin="10" FontSize="22" FontWeight="Medium"/>
-                <StackPanel Margin="20 0">
+                <TextBlock Text="Items" Margin="0" FontSize="22" FontWeight="Medium"/>
+                <StackPanel Margin="21 0">
                     <ItemsControl x:Name="ListViewProducts" ItemsSource="{Binding Product}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 
-                                <Border Margin="10" Width="110" Height="160">
+                                <Border Margin="10" Width="110" Height="136">
                                     <StackPanel>
 
                                         <Border Width="100" Height="100" CornerRadius="5" Margin="5">
@@ -31,9 +34,15 @@
                                                 <ImageBrush ImageSource="{Binding image}"/>
                                             </Border.Background>
                                         </Border>
-                                        <Button Content="{Binding Name}" Tag="{Binding}" Click="Button_Click"/>
-                                        <TextBlock Margin="5" Text="{Binding Price}" FontSize="17" FontFamily="Franklin Gothic Medium"/>
-                                        <TextBlock Margin="5 0" Text="{Binding Name}" FontSize="17"/>
+                                        <Button Content="{Binding Name}" Tag="{Binding}" Click="Button_Click" 
+                                                Background="#FF081132"
+                                                Height="25"
+                                                Opacity="1"
+                                                FontFamily="Helvetica"
+                                                FontWeight="Bold"
+                                                />
+                                        
+                                        
                                     </StackPanel>
                                 </Border>
                             </DataTemplate>
@@ -47,5 +56,6 @@
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>
+        
     </Grid>
 </UserControl>
